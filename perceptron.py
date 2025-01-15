@@ -1,13 +1,12 @@
 import numpy as np
 
-def perceptron(X, y, max_iterations=1000):
+def perceptron(X, y):
     """
     Implements the Perceptron algorithm
     
     Parameters:
     X: array of shape (n_samples, n_features)
     y: array of labels (-1 or 1)
-    max_iterations: maximum number of iterations over the dataset
     
     Returns:
     w: final weight vector
@@ -17,7 +16,7 @@ def perceptron(X, y, max_iterations=1000):
     w = np.zeros(n_features)  # Initialize w1 = 0 as per slide 8
     mistakes = 0
     
-    for _ in range(max_iterations):
+    while True:  # Run indefinitely until perfect separation is found
         made_mistake = False
         
         # Iterate over all points xi
@@ -36,7 +35,7 @@ def perceptron(X, y, max_iterations=1000):
                 mistakes += 1
                 made_mistake = True
         
-        # If no mistakes in this round, exit algorithm
+        # If no mistakes in this round, we found a perfect separator
         if not made_mistake:
             break
             
