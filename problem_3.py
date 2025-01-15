@@ -1,5 +1,10 @@
+'''
+Using Python 3.10.12 on wsl
+'''
+
 import numpy as np
 from sklearn.datasets import load_iris
+
 from itertools import combinations
 import math
 

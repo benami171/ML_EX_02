@@ -1,3 +1,7 @@
+'''
+Using Python 3.10.12 on wsl
+'''
+
 from perceptron import perceptron, prepare_iris_data
 from true_margin import calculate_true_margin
 
