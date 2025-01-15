@@ -20,14 +20,6 @@ def main():
     print(f"Number of mistakes: {num_mistakes2}")
     print(f"True margin: {true_margin2}\n")
 
-    # Call perceptron for Versicolor vs Virginica
-    X3, y3 = prepare_iris_data('iris.txt', 'Iris-versicolor', 'Iris-virginica')
-    final_weights3, num_mistakes3 = perceptron(X3, y3)
-    true_margin3 = calculate_true_margin(X3, y3)
-    print(f"Versicolor vs Virginica:")
-    print(f"Final weight vector: {final_weights3}")
-    print(f"Number of mistakes: {num_mistakes3}")
-    print(f"True margin: {true_margin3}\n")
 
 if __name__ == "__main__":
     main()
