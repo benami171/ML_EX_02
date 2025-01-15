@@ -1,4 +1,3 @@
-```markdown:README.md
 # Machine Learning Assignment - Perceptron and AdaBoost
 
 ## Overview
@@ -23,7 +22,7 @@ This project implements and analyzes two fundamental machine learning algorithms
 - Runs until perfect separation is found (no iteration limit)
 
 ### Usage
-```python
+```
 python problem_2.py
 ```
 
@@ -41,7 +40,8 @@ For each pair of classes:
 - 50-50 train-test split on Versicolor vs Virginica
 
 ### Usage
-```python
+
+```
 python problem_3.py
 ```
 
@@ -79,4 +79,3 @@ For each classifier H₁ through H₈:
 ## Notes
 - Perceptron will run indefinitely for non-linearly-separable classes
 - AdaBoost shows characteristic resistance to overfitting despite increasing model complexity
-```
