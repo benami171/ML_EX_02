@@ -1,3 +1,7 @@
+'''
+Using Python 3.10.12 on wsl
+'''
+
 import numpy as np
 
 def calculate_slope(p1, p2):
