@@ -144,7 +144,6 @@ def run_experiment():
     test_errors = np.zeros((n_runs, 8))
     
     for run in range(n_runs):
-        print(f"\nRun {run + 1}/100")
         indices = np.random.permutation(len(X))
         split = len(X) // 2
         
