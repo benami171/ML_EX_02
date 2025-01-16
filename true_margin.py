@@ -1,6 +1,6 @@
-'''
-Using Python 3.13.1
-'''
+"""
+Using Python 3.11.9
+"""
 import numpy as np
 
 def calculate_slope(p1, p2):

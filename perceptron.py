@@ -1,7 +1,8 @@
-'''
-Using Python 3.13.1
-'''
+"""
+Using Python 3.11.9
+"""
 import numpy as np
+from sklearn.datasets import load_iris
 
 def perceptron(X, y):
     """
@@ -16,7 +17,7 @@ def perceptron(X, y):
     mistakes: number of mistakes made
     """
     n_samples, n_features = X.shape
-    w = np.zeros(n_features)  # Initialize w1 = 0 as per slide 8
+    w = np.zeros(n_features)  # Initialize w1 = 0 as seen in class.
     mistakes = 0
     
     while True:  # Run indefinitely until perfect separation is found
@@ -43,6 +44,7 @@ def perceptron(X, y):
             break
             
     return w, mistakes
+
 
 # Load and prepare the Iris data
 def prepare_iris_data(iris_file, class1, class2):

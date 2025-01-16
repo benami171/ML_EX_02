@@ -1,17 +1,18 @@
-'''
-Using Python 3.13.1
-'''
+"""
+Using Python 3.11.9
+"""
 import numpy as np
 from sklearn.datasets import load_iris
 from itertools import combinations
 import math
 
+
 def load_versicolor_virginica():
     """Load only Versicolor and Virginica samples from Iris dataset."""
     iris = load_iris()
-    indices = np.where((iris.target == 1) | (iris.target == 2))[0]
-    X = iris.data[indices, 1:3]
-    y = np.where(iris.target[indices] == 1, -1, 1)
+    indices = np.where((iris.target == 1) | (iris.target == 2))[0] 
+    X = iris.data[indices, 1:3] 
+    y = np.where(iris.target[indices] == 1, -1, 1) 
     return X, y
 
 def create_weak_classifiers(points, labels):
@@ -25,6 +26,7 @@ def create_weak_classifiers(points, labels):
     for i, j in combinations(range(n_points), 2):
         p1, p2 = points[i], points[j]
         
+        # Skip if points are the same
         if np.allclose(p1, p2):
             continue
             
@@ -135,7 +137,7 @@ def run_experiment():
     """Run the complete AdaBoost experiment with progress tracking."""
     print("Starting Adaboost experiment with 100 runs...")
     X, y = load_versicolor_virginica()
-    n_runs = 100
+    n_runs = 20
     k_values = range(1, 9)
     
     train_errors = np.zeros((n_runs, 8))
