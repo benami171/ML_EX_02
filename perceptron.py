@@ -1,7 +1,6 @@
 '''
-Using Python 3.10.12 on wsl
+Using Python 3.13.1
 '''
-
 import numpy as np
 
 def perceptron(X, y):
