@@ -144,28 +144,39 @@ def run_experiment():
     test_errors = np.zeros((n_runs, 8))
     
     for run in range(n_runs):
+        # Randomly permute indices for unbiased dataset splitting
         indices = np.random.permutation(len(X))
         split = len(X) // 2
         
         train_idx = indices[:split]
         test_idx = indices[split:]
-        
+
+        # Extract training and test datasets
         X_train, y_train = X[train_idx], y[train_idx]
         X_test, y_test = X[test_idx], y[test_idx]
         
+        # Generate set H of weak classifiers (linear separators) from training data
         H = create_weak_classifiers(X_train, y_train)
+        
+        # Train AdaBoost model
+        # Returns: selected weak classifiers and their weights (α_t)        
         classifiers, alphas = adaboost_train(X_train, y_train, H)
         
+
+        # Evaluate performance for different ensemble sizes (k=1 to 8)
         for k in k_values:
             if k <= len(classifiers):
+                # Make predictions using k weak classifiers
                 y_train_pred = H_x(X_train, classifiers, alphas, k)
                 y_test_pred = H_x(X_test, classifiers, alphas, k)
                 
+                # Compute empirical and true errors
                 train_errors[run, k-1] = compute_error(y_train, y_train_pred)
                 test_errors[run, k-1] = compute_error(y_test, y_test_pred)
     
-    avg_train_errors = np.mean(train_errors, axis=0)
-    avg_test_errors = np.mean(test_errors, axis=0)
+    # Average errors across all runs
+    avg_train_errors = np.mean(train_errors, axis=0) # Empirical errors
+    avg_test_errors = np.mean(test_errors, axis=0)   # True errors
     
     print("\nFinal Results after 100 runs:")
     print("\nAverage True Errors:")
