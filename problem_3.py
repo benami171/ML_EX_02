@@ -10,7 +10,7 @@ import math
 def load_versicolor_virginica():
     """Load only Versicolor and Virginica samples from Iris dataset."""
     iris = load_iris()
-    indices = np.where((iris.target == 1) | (iris.target == 2))[0] 
+    indices = np.where((iris.target == 1) | (iris.target == 2))[0] # 1 for Versicolor, 2 for Virginica
     X = iris.data[indices, 1:3] 
     y = np.where(iris.target[indices] == 1, -1, 1) 
     return X, y
@@ -137,7 +137,7 @@ def run_experiment():
     """Run the complete AdaBoost experiment with progress tracking."""
     print("Starting Adaboost experiment with 100 runs...")
     X, y = load_versicolor_virginica()
-    n_runs = 20
+    n_runs = 100
     k_values = range(1, 9)
     
     train_errors = np.zeros((n_runs, 8))
